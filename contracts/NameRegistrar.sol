@@ -16,7 +16,7 @@ contract NameRegistrar {
     uint256 public constant MIN_COMMITMENT_TIME = 120;
 
     /// @dev A user commitment will expire 24hs after its first sent
-    uint256 public constant COMMITMENT_EXPIRACY = 1 days;
+    uint256 public constant COMMITMENT_EXPIRY = 1 days;
 
     /// @dev Used to determine if a user owns a name
     /// @return The name hash owner by a user
@@ -90,7 +90,7 @@ contract NameRegistrar {
         // Checks if it is intended to re-commit an expired _commitmentHash
         // E.g. A user commited that hash and calls again this function within that timeframe.
         // Also prevents a user from constantly renewing a hash commitment.
-        if(commitmentTimesamp[_commitmentHash] + COMMITMENT_EXPIRACY >= block.timestamp){
+        if(commitmentTimesamp[_commitmentHash] + COMMITMENT_EXPIRY >= block.timestamp){
             revert AlreadyCommited(_commitmentHash);
         }
 
@@ -133,7 +133,7 @@ contract NameRegistrar {
         }
 
         // Check if the commitment has expired
-        if(commitmentTimesamp[_commitmentHash] + COMMITMENT_EXPIRACY <= block.timestamp){
+        if(commitmentTimesamp[_commitmentHash] + COMMITMENT_EXPIRY <= block.timestamp){
             revert CommitmentExpired(_commitmentHash);
         }
 
