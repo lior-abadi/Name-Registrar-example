@@ -68,7 +68,7 @@ contract NameRegistrar {
     /// @param _name The alias name that is wanted to be claimed
     /// @param _salt A user given salt parameter to decrease the chance to forcely calculate the hash
     /// @return The value of the commitment hash
-    function createCommitment(
+    function calculateCommitment(
         string memory _name,
         uint256 _salt
     ) public view returns(bytes32){
@@ -89,6 +89,7 @@ contract NameRegistrar {
 
         // Checks if it is intended to re-commit an expired _commitmentHash
         // E.g. A user commited that hash and calls again this function within that timeframe.
+        // Also prevents a user from constantly renewing a hash commitment.
         if(commitmentTimesamp[_commitmentHash] + COMMITMENT_EXPIRACY >= block.timestamp){
             revert AlreadyCommited(_commitmentHash);
         }
@@ -109,7 +110,7 @@ contract NameRegistrar {
         _clearCommitment(
             _name,
             nameHash,
-            createCommitment(_name, _salt)
+            calculateCommitment(_name, _salt)
         );
 
         ownerToNameHash[msg.sender] = nameHash;

@@ -32,7 +32,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -48,7 +48,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -68,7 +68,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -95,7 +95,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -116,7 +116,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -138,7 +138,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -155,7 +155,7 @@ describe("NameRegistrar", function () {
         await tx2.wait();
 
 
-        const commitmentHash2 = await registrar.connect(bob).createCommitment(
+        const commitmentHash2 = await registrar.connect(bob).calculateCommitment(
           "Alice222",
           9122018
         );
@@ -176,7 +176,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice222",
             9122018
         );
@@ -202,7 +202,7 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const commitmentHash = await registrar.connect(alice).createCommitment(
+        const commitmentHash = await registrar.connect(alice).calculateCommitment(
             "Alice21",
             9122018
         );
@@ -237,11 +237,11 @@ describe("NameRegistrar", function () {
           deployWithFixture
         );
         
-        const aliceHash = await registrar.connect(alice).createCommitment(
+        const aliceHash = await registrar.connect(alice).calculateCommitment(
            "Alicia",
             9122018
         );
-        const bobHash = await registrar.connect(bob).createCommitment(
+        const bobHash = await registrar.connect(bob).calculateCommitment(
           "Bob31",
           31
         );
